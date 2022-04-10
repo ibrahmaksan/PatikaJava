@@ -1,7 +1,7 @@
 package Patika;
 
 
-// Birkaç farklı dosya açarak oluşturulabilecek bir projeydi fakat tek dosya açarakta projenin yapılabileceğini göstermek istedim.
+// BirkaÃ§ farklÃ½ dosya aÃ§arak oluÃ¾turulabilecek bir projeydi fakat tek dosya aÃ§arakta projenin yapÃ½labileceÃ°ini gÃ¶stermek istedim.
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -24,19 +24,16 @@ class Markalar implements Comparable<Markalar>{
 		return ID;
 	}
 
-
 	@Override
-	public int compareTo(Markalar o) { // Markaları alfabetik olarak sıralamak için yeniden yazdım compareTO'yu. Tabi veri yapıları da kullanılabilirdi.
+	public int compareTo(Markalar o) { // MarkalarÃ½ alfabetik olarak sÃ½ralamak iÃ§in yeniden yazdÃ½m compareTO'yu. Tabi veri yapÃ½larÃ½ da kullanÃ½labilirdi.
 		if(this.name.compareTo(o.name) > 0) {	
 			return 1;
 		}
 		else if(this.name.compareTo(o.name) < 0){
-			
 			return -1;
 		}
 		return 0;
 	}
-
 }
 
 class Products{
@@ -46,7 +43,6 @@ class Products{
 	long ID;
 	int price;
 	double discount;
-	static int stock;
 	Markalar marka;
 	int storage;
 	String screen;
@@ -76,7 +72,7 @@ class Products{
 }
 
 class Telefon extends Products{
-	
+	static int stock = 0;
 	@Override
 	public String toString() {
 		return ID + " - " + "  " + marka.name + "  " + name +"  "+ storage +"  "+ RAM + "  " + screen + " "+ color;
@@ -90,7 +86,7 @@ class Telefon extends Products{
 }
 
 class Bilgisayar extends Products{
-
+	static int stock = 0;
 	public Bilgisayar(String name, long ID, int price, double discount, Markalar marka, int storage,
 			String screen, int RAM) {
 		super(name, ID, price, discount, marka, storage, screen, RAM);
@@ -99,18 +95,13 @@ class Bilgisayar extends Products{
 	
 	@Override
 	public String toString() {
-		return "Marka ve Modeli : " + marka.name + " " + name +" Depolama Alanı : " + storage  +" Ram Miktraı : " + RAM + " Ekran: " + screen;
-	}
-	
-	
+		return "Marka ve Modeli : " + marka.name + " " + name +" Depolama AlanÃ½ : " + storage  +" Ram MiktraÃ½ : " + RAM + " Ekran: " + screen;
+	}	
 }
-
-
 
 public class PatikaStore {
 	
 	static Scanner scanner = new Scanner(System.in);
-	
 	
 	static Markalar marka1 = new Markalar("Samsung",1);
 	static Markalar marka2 = new Markalar("Lenovo",2);
@@ -127,13 +118,13 @@ public class PatikaStore {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("Mağazamıza hoşgeldiniz :");
+		System.out.println("MaÃ°azamÃ½za hoÃ¾geldiniz :");
 
 		mainMenu();
 		
 		while(true) {
 			
-		System.out.println("Yapmak istediğiniz işlem : ");
+		System.out.println("Yapmak istediÃ°iniz iÃ¾lem : ");
 		int islem = scanner.nextInt();scanner.nextLine();
 		
 		options(islem);
@@ -142,7 +133,7 @@ public class PatikaStore {
 	
 	static void listMobiles() {
 		
-		System.out.println("ID |" + " Marka ve Model |" + " Depolama Alanı |" + " RAM |" + " Ekran |" + " Renk |");
+		System.out.println("ID |" + " Marka ve Model |" + " Depolama AlanÃ½ |" + " RAM |" + " Ekran |" + " Renk |");
 		
 		for(int i = 0;i<telefonlar.size();i++) {
 			
@@ -164,7 +155,7 @@ public class PatikaStore {
 		
 		Arrays.sort(liste);
 		
-		System.out.println("Şu an mağazamızda bulunan markalar : ");
+		System.out.println("Ãu an maÃ°azamÃ½zda bulunan markalar : ");
 		
 		for(int i = 0; i<liste.length; i++) {
 			
@@ -174,18 +165,18 @@ public class PatikaStore {
 	
 	public static void addPhone() {
 		
-		System.out.println("Telefon ekleme sayfasına hoşgeldiniz.");
-		Listele(); // Listele fonksiyonu ile markalar alfabetik olarak sıralandı.
+		System.out.println("Telefon ekleme sayfasÃ½na hoÃ¾geldiniz.");
+		Listele(); // Listele fonksiyonu ile markalar alfabetik olarak sÃ½ralandÃ½.
 		
-		System.out.println("Telefonun markasının numarasını seçiniz : ");
+		System.out.println("Telefonun markasÃ½nÃ½n numarasÃ½nÃ½ seÃ§iniz : ");
 		int marka = scanner.nextInt();scanner.nextLine();
 		
-		System.out.println("Telefon adı : ");
+		System.out.println("Telefon adÃ½ : ");
 		String name = scanner.nextLine();
 		System.out.println("RAM : ");
 		int ram = scanner.nextInt();scanner.nextLine();
 		
-		System.out.println("Depolama Alanı : ");
+		System.out.println("Depolama AlanÃ½ : ");
 		int depo = scanner.nextInt();scanner.nextLine();
 		
 		System.out.println("Batarya : ");
@@ -197,13 +188,13 @@ public class PatikaStore {
 		System.out.println("Renk: ");
 		String renk = scanner.nextLine();
 		
-		System.out.println("Ürün fiyatı : ");
+		System.out.println("ÃœrÃ¼n fiyatÃ½ : ");
 		int fiyat = scanner.nextInt();scanner.nextLine();
 		
-		System.out.println("İndirim : ");
+		System.out.println("Ãndirim : ");
 		Double indirim = scanner.nextDouble();scanner.nextLine();
 		
-		System.out.println("Ürün ID'si: ");
+		System.out.println("ÃœrÃ¼n ID'si: ");
 		long ID = scanner.nextLong();
 		
 		Telefon telefon = new Telefon(name,ID,fiyat,indirim,liste[marka-1],depo,ekran,batarya,ram,renk);
@@ -212,29 +203,29 @@ public class PatikaStore {
 	
 	public static void addNotebook() {
 		
-		System.out.println("Bilgisayar ekleme sayfasına hoşgeldiniz.");
+		System.out.println("Bilgisayar ekleme sayfasÃ½na hoÃ¾geldiniz.");
 		Listele();
-		System.out.println("Eklemek istediğimiz marka : ");
+		System.out.println("Eklemek istediÃ°imiz marka : ");
 		int marka = scanner.nextInt();scanner.nextLine();
 		
-		System.out.println("PC adı : ");
+		System.out.println("PC adÃ½ : ");
 		String name = scanner.nextLine();
 		System.out.println("RAM : ");
 		int ram = scanner.nextInt();scanner.nextLine();
 		
-		System.out.println("Depolama Alanı : ");
+		System.out.println("Depolama AlanÃ½ : ");
 		int depo = scanner.nextInt();scanner.nextLine();
 		
 		System.out.println("Ekran boyutu : ");
 		String ekran = scanner.nextLine();
 		
-		System.out.println("Ürün fiyatı : ");
+		System.out.println("ÃœrÃ¼n fiyatÃ½ : ");
 		int fiyat = scanner.nextInt();scanner.nextLine();
 		
-		System.out.println("İndirim : ");
+		System.out.println("Ãndirim : ");
 		Double indirim = scanner.nextDouble();scanner.nextLine();
 		
-		System.out.println("Ürün ID'si: ");
+		System.out.println("ÃœrÃ¼n ID'si: ");
 		long ID = scanner.nextLong();
 		
 		Bilgisayar bilgisayar = new Bilgisayar(name,ID,fiyat,indirim,liste[marka-1],depo,ekran,ram);
@@ -246,14 +237,14 @@ public class PatikaStore {
 		
 		System.out.println("Hangi indeksteki telfonu sileceksiniz : ");
 		telefonlar.remove(scanner.nextInt());
-		System.out.println("Ürün listeden kaldırıldı\n");
+		System.out.println("ÃœrÃ¼n listeden kaldÃ½rÃ½ldÃ½\n");
 	}
 	
 	static void deleteNotebook() {
 		
 		System.out.println("Hangi indeksteki notebooku sileceksiniz : ");
 		telefonlar.remove(scanner.nextInt());
-		System.out.println("Ürün listeden kaldırıldı\n");
+		System.out.println("ÃœrÃ¼n listeden kaldÃ½rÃ½ldÃ½\n");
 	}
 	
 	static void mainMenu() {
@@ -261,10 +252,10 @@ public class PatikaStore {
 		System.out.println("1- Telefonlar");
 		System.out.println("2- Bilgisayarlar");
 		System.out.println("3- Telefon ekle");
-		System.out.println("4- Bİlgisayar Ekle");
+		System.out.println("4- BÃlgisayar Ekle");
 		System.out.println("5- Telefon sil");
 		System.out.println("6- Bilgisayar sil");
-		System.out.println("7- Sistemden çık");
+		System.out.println("7- Sistemden Ã§Ã½k");
 	}
 	
 	static void options(int pr) {
@@ -294,12 +285,12 @@ public class PatikaStore {
 			deleteNotebook();
 		}
 		else if(pr == 7) {
-			System.out.println("Sistemden çıkıldı.");
+			System.out.println("Sistemden Ã§Ã½kÃ½ldÃ½.");
 			System.exit(1);
 		}
 		
 		else {
-			System.out.println("Seçenekler haricinde bir tuşlama yaptınız. Programdan çıkılıyor.");
+			System.out.println("SeÃ§enekler haricinde bir tuÃ¾lama yaptÃ½nÃ½z. Programdan Ã§Ã½kÃ½lÃ½yor.");
 			System.exit(1);
 		}
 	}
